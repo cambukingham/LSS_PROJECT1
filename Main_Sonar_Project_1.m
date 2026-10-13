@@ -18,3 +18,18 @@ grid on
 xlabel('Time [ms]')
 ylabel('Amplitude')
 title('Measured Received Signal $r[n]$','Interpreter','latex')
+
+%cross correlation
+
+[cross_cor, lags] = xcorr(s, r);
+
+
+figure(4);
+plot(lags,abs(cross_cor),'LineWidth',1.0);
+grid on;
+xlabel('LAG');
+ylabel('cross correlation');
+
+
+%d1 = (343 * N1) /(2*fs);
+%d2 = (343 * N2) /(2*fs);

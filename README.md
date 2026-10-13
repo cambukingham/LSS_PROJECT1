@@ -23,7 +23,7 @@ git push -u origin <BRANCH_NAME>
 allows you to upload your changes/updates to the repository
 the true pipeline is:
  add (git add <file name> or git add . for bulk add)  |||
-||| commit (git commit -m "message") |||
+commit (git commit -m "message") |||
 push!!
 
 
@@ -38,3 +38,14 @@ unitstep = (t >= 0);
 ramp - 
 % 2. Unit Ramp Function (r(t) = t for t >= 0, else 0)
 ramp = t .* unitstep;
+
+cross-correlation-
+r = xcorr(x, y)
+
+quantizor- 
+
+[index, quants] = quantiz(sig, partition, codebook);
+
+
+
+ALWAYS PULL BEFORE YOU PUSH
