@@ -2,7 +2,7 @@
 % Main script
 clear;
 clc;
-close all;
+close all; disp('hi');
 %% ================================================================
 % Load and display the industrial environment
 % ================================================================
