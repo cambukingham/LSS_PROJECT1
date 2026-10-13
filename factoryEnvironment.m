@@ -19,7 +19,7 @@ env.A = [2 2];
 env.B = [38 18];
 disp("hi")
 % Circular obstacles
-%
+% poopy pants
 % Each row is:
 %
 % [x_center y_center radius]
