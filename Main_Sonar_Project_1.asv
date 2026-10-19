@@ -15,18 +15,24 @@ title('Transmitted Signal $s[n]$','Interpreter','latex')
 figure;
 plot(tr*1e3,r,'LineWidth',1.0)
 grid on
-xlabel('Lag')
+xlabel('Time [ms]')
 ylabel('Amplitude')
 title('Measured Received Signal $r[n]$','Interpreter','latex')
 
 %cross correlation
-figure;
 
-cross_cor = xcorr(s, r);
+[cross_cor, lags] = xcorr(s, r);
 
 
-figure;
-plot(,abs(cross_cor),'LineWidth',1.0);
+figure(4);
+plot(lags,abs(cross_cor),'LineWidth',1.0);
 grid on;
-xlabel('Time [ms]');
-ylabel('cross');
+xlabel('LAG');
+ylabel('cross correlation');
+
+
+%d1 = (343 * N1) /(2*fs);
+%d2 = (343 * N2) /(2*fs);
+
+%-641 , 19.5429
+%-1402, 8.6192
