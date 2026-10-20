@@ -1,0 +1,45 @@
+%% Industrial Monitoring Project
+% Main script
+clear;
+clc;
+close all; 
+%% ================================================================
+% Load and display the industrial environment
+% ================================================================
+env = factoryEnvironment();
+
+%%%%
+
+
+function step = stepFunction(lower_bound, upper_bound, amplitude)
+
+    t = lower_bound:0.01:upper_bound;
+    
+    % Create unit step using logical condition
+    unitstep = (t >= 0);
+    
+    % Plot the step function
+    plot(t, unitstep, 'LineWidth', 2);
+    grid on;
+    %%%%
+
+    
+end
+
+
+
+
+
+
+
+
+% Define the time vector
+t = -2:0.01:2;
+
+% Create unit step and multiply by t to get ramp
+unitstep = (t >= 0);
+ramp = t .* unitstep;
+
+% Plot the ramp function
+plot(t, ramp, 'LineWidth', 2);
+grid on;
