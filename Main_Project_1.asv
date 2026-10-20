@@ -11,35 +11,45 @@ env = factoryEnvironment();
 %%%%
 
 
-function step = stepFunction(lower_bound, upper_bound, amplitude)
+function step = stepFunction(lower_bound, upper_bound, amplitude, shift)
 
     t = lower_bound:0.01:upper_bound;
     
     % Create unit step using logical condition
-    unitstep = (t >= 0);
+    unitstep = (t >= shift);
     
     % Plot the step function
-    plot(t, unitstep, 'LineWidth', 2);
+    plot(t, amplitude*unitstep, 'LineWidth', 2);
     grid on;
     %%%%
 
     
 end
 
+%test step
+%stepFunction(-20, 20, 5, 3)
+
+%IS THIS WORKING
 
 
 
+function ramp = rampFunction(lower_bound, upper_bound, amplitude, shift, y_start)
+    
+    % Define the time vector
+    t = lower_bound:0.01:upper_bound;
+    
+    % Create unit step and multiply by t to get ramp
+    unitstep = (t >= shift);
+    ramp = t .* unitstep;
+    
+    % Plot the ramp function
+    plot(t, amplitude * ramp + y_start, 'LineWidth', 2);
+    grid on;
+end
 
 
+%test ramp
+%rampFunction(-20, 20, 5, 0)
 
-
-% Define the time vector
-t = -2:0.01:2;
-
-% Create unit step and multiply by t to get ramp
-unitstep = (t >= 0);
-ramp = t .* unitstep;
-
-% Plot the ramp function
-plot(t, ramp, 'LineWidth', 2);
-grid on;
+stepFunction(0, 13, 12, 2)
+rampFunction(13, 20, -3, 13, 12)
