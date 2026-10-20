@@ -43,7 +43,7 @@ function ramp = rampFunction(lower_bound, upper_bound, amplitude, shift)
     ramp = t .* unitstep;
     
     % Plot the ramp function
-    plot(t, ramp, 'LineWidth', 2);
+    plot(t, amplitude * ramp, 'LineWidth', 2);
     grid on;
 end
 
