@@ -57,6 +57,12 @@ rampFunction(16.5, 25, .7, 16.5, 3.25)
 stepFunction(24.999, 38, 8.8, 25, 9.2)
 
 
+xdot = gradient(x,t);
+ydot = gradient(y,t);
+
+speed = sqrt(xdot.^2 + ydot.^2);
+maxSpeed = max(speed);
+fprintf('Maximum speed: %.3f m/s\n', maxSpeed);
 
 
 %given variables + equations:
