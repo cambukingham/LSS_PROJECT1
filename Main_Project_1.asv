@@ -17,10 +17,10 @@ function step = stepFunction(lower_bound, upper_bound, amplitude, shift, y_offse
     t = lower_bound:0.01:upper_bound; %domain of the function
 
     % Create unit step using logical condition
-    unitstep = (t >= shift); %
+    unitstep = (t >= shift);  
 
     % Calculate the step function with y offset
-    step = y_offset + amplitude * unitstep;
+    step = y_offset + amplitude * unitstep; 
 
     % Plot the step function
     plot(t, step, 'LineWidth', 2);
@@ -55,4 +55,28 @@ stepFunction(1.999, 13, 10, 2, 2)
 rampFunction(13, 16.5, -2.5, 13, 12)
 rampFunction(16.5, 25, .7, 16.5, 3.25)
 stepFunction(24.999, 38, 8.8, 25, 9.2)
+
+
+
+
+%given variables + equations:
+
+
+concentration = 0:1:120;
+r_inf = 8e4*concentration.^(-.602);
+
+%graph of R_inf vs C, linear axis
+
+figure;
+
+
+
+plot(concentration, r_inf, 'LineWidth', 2);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%graph of R_inf vs C, logarithmic axis
+
+set(gca, 'XScale', 'log', 'YScale', 'log');
+
 
