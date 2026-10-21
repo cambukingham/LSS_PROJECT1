@@ -17,10 +17,10 @@ function step = stepFunction(lower_bound, upper_bound, amplitude, shift, y_offse
     t = lower_bound:0.01:upper_bound; %domain of the function
 
     % Create unit step using logical condition
-    unitstep = (t >= shift);  
+    unitstep = (t >= shift); % 
 
     % Calculate the step function with y offset
-    step = y_offset + amplitude * unitstep; 
+    step = y_offset + amplitude * unitstep;
 
     % Plot the step function
     plot(t, step, 'LineWidth', 2);
