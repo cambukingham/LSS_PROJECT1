@@ -66,6 +66,21 @@ stepFunction(24.999, 38, 8.8, 25, 9.2)
 %fprintf('Maximum speed: %.3f m/s\n', maxSpeed);
 
 
+%%%%%%%%%% CHARGE EQUATION %%%%%%%%%%%
+
+% Define constants
+q0 = 1;                 
+qcrit = 0.60;
+lambda = 1.7e-3;        
+
+
+
+% Define time vector (e.g., 0 to 3000 seconds)
+t = linspace(0, 3000, 1000); 
+
+% Calculate q(t)
+q_t = q0 * exp(-lambda * t);
+
 
 
 
@@ -113,3 +128,31 @@ grid on;
 v_out = 5 * (10e3 ./ (r_inf + 10e3));
 
 plot(concentration, v_out, 'LineWidth', 2);
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%% sampling and quantization stages%%%%%%%%%%%%%%%%%%%%%%
+
+%(i)
+% number of available quantization levels: L = 2^N
+
+v_ref = 5;
+N1=8; 
+N2=10; 
+N3=12; 
+
+L1 = 2^N1;
+L2 = 2^N1;
+L3 = 2^N3;
+
+% voltage resolution/voltage step: V_delta = V_ref / L
+
+v_delta1 = v_ref / L1;
+v_delta2 = v_ref / L2;
+v_delta3 = v_ref / L3;
+
+
+%Sample signal Vout
+%(ii)
+
