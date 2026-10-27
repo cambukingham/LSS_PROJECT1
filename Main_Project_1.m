@@ -33,28 +33,37 @@ end
 %IS THIS WORKING
 
 
+dt = 0.01;
+t = 0:dt:62.55961;
 
-function ramp = rampFunction(lower_bound, upper_bound, amplitude, shift, y_start)
+% Calculate x(t) using your ramp-function structure
+x = 2 ...
+    + rampFunction(t, 10, 21, 1) ...
+    + rampFunction(t, 21, 30.42404, 0.371391) ...
+    + rampFunction(t, 30.42404, 40.79961, 0.819232) ...
+    + rampFunction(t, 49.59961, 62.55961, 1);
 
-    % Define the time vector
-    t = lower_bound:0.01:upper_bound;
+y = 2 ...
+    + rampFunction(t, 0, 10, 1) ...
+    + rampFunction(t, 21, 30.42404, -0.928477) ...
+    + rampFunction(t, 30.42404, 40.79961, 0.573462) ...
+    + rampFunction(t, 40.79961, 49.59961, 1);
 
-    % Create a shifted ramp function
-    ramp = amplitude .* (t - shift) .* (t >= shift) + y_start;
 
-    % Plot the ramp function
-    plot(t, ramp, 'LineWidth', 2);
-    grid on;
+
+plot(x, y, 'LineWidth', 2);
+
+function ramp = rampFunction(t, start_time, end_time, amplitude)
+
+    % Create a finite ramp with the specified slope
+    ramp = amplitude .* ((t - start_time) .* (t >= start_time) ...
+           - (t - end_time) .* (t >= end_time));
+
 end
-
 
 %test ramp
 %rampFunction(-20, 20, 5, 0)
 
-stepFunction(1.999, 13, 10, 2, 2)
-rampFunction(13, 16.5, -2.5, 13, 12)
-rampFunction(16.5, 25, .7, 16.5, 3.25)
-stepFunction(24.999, 38, 8.8, 25, 9.2)
 
 %%JERRY's WORK%%
 
@@ -76,12 +85,12 @@ lambda = 1.7e-3;
 
 
 % Define time vector (e.g., 0 to 3000 seconds)
-t = linspace(0, 3000, 1000); 
+t = linspace(0, 62.55961, 1); 
 
 % Calculate q(t)
-q_t = q0 * exp(-lambda * t);
+q_t = q0 * exp(-lambda * (62.55961 + 240));
 
-
+disp(q_t);
 
 
 
