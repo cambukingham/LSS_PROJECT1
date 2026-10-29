@@ -17,7 +17,7 @@ function env = factoryEnvironment()
 % Initial and final positions
 env.A = [2 2];
 env.B = [38 18];
-disp("hi")
+
 % Circular obstacles
 %
 % Each row is:
