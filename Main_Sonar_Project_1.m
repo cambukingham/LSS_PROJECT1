@@ -18,17 +18,21 @@ grid on
 xlabel('Time [ms]')
 ylabel('Amplitude')
 title('Measured Received Signal $r[n]$','Interpreter','latex')
+% Cross-correlation
+[cross_cor, lags] = xcorr(r, s);
 
-%cross correlation
+% Keep only nonnegative lags
+idx = lags >= 0;
+lags = lags(idx);
+cross_cor = cross_cor(idx);
 
-[cross_cor, lags] = xcorr(s, r);
-
-
-figure(4);
-plot(lags,abs(cross_cor),'LineWidth',1.0);
+% Plot magnitude of cross-correlation
+figure;
+plot(lags, abs(cross_cor), 'LineWidth', 1.0);
 grid on;
-xlabel('LAG');
-ylabel('cross correlation');
+xlabel('Lag (samples)');
+ylabel('Magnitude of Cross-Correlation');
+title('Cross-Correlation for Nonnegative Lags');
 %-641 , 19.5429
 %-1401, 8.6192
 N1 = -1401;
