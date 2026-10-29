@@ -215,7 +215,7 @@ for m = 1:3
     stem(tn(1:10:end), VoutN(1:10:end), 'b', 'MarkerSize', 3);
     stairs(tn, VQ, 'r', 'LineWidth', 1);
     grid on; ylabel('V [V]');
-    title(sprintf('N = %d bits (stems shown every 1 s for clarity)', N));
+    title(sprintf('N = %d bits', N));
     if m == 1, legend('V_{OUT}(t)','V_{OUT}[n]','V_Q[n]','Location','southeast'); end
 end
 xlabel('t [s]');
